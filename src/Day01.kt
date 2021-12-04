@@ -6,7 +6,9 @@ fun main() {
     }
 
     fun part2(input: List<Int>): Int {
-        return input.size
+        return input
+            .windowed(size = 4, transform = { l -> l.first() - l.last() })
+            .count { it < 0 }
     }
 
     val input = readInputAsInt("Day01")
